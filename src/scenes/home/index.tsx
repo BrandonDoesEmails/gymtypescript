@@ -8,7 +8,6 @@ import SponsorForbes from "@/assets/SponsorForbes.png";
 import SponsorFortune from "@/assets/SponsorFortune.png";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { motion } from "framer-motion";
-motion;
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -19,7 +18,9 @@ const Home = ({ setSelectedPage }: Props) => {
   return (
     <section id="home" className="gap-16 bg-gray-20 py-10 md:h-full md:pb-0">
       {/* IMAGE AND MAIN HEADER */}
-      <div className="md:flex  mx-auto w-5/6 items-center justify-center md:h-5/6">
+      <motion.div
+        onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
+        className="md:flex  mx-auto w-5/6 items-center justify-center md:h-5/6">
         {/* MAIN HEADER  */}
         <div className="z-10 mt-32 md:basis-3/5">
           {/* HEADINGS */}
@@ -70,7 +71,7 @@ const Home = ({ setSelectedPage }: Props) => {
         <div className="flex basis-3/5 justify-center md:z-10 md:ml-40 md:mt-16 md:justify-end">
           <img src={HomePageGraphic} alt="home-page-graphic" />
         </div>
-      </div>
+      </motion.div>
 
       {/* SPONSORS  */}
       {isAboveMediumScreens && (
